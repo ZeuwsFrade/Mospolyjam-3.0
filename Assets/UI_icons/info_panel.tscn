@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvrrx6gkbuv37"]
+
+[ext_resource type="Script" path="res://info_panel.gd" id="1_da0nq"]
+[ext_resource type="Texture2D" uid="uid://blwxykq8blluk" path="res://Assets/UI_icons/button.png" id="2_bhi74"]
+
+[node name="Info_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1248.0
+offset_bottom = -592.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_da0nq")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 128.0
+texture = ExtResource("2_bhi74")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 112.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

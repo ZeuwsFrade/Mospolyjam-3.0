@@ -1,0 +1,204 @@
+[gd_scene load_steps=6 format=3 uid="uid://b68kpk3jho1d0"]
+
+[ext_resource type="Texture2D" uid="uid://blwxykq8blluk" path="res://Assets/UI_icons/button.png" id="1_twvdh"]
+[ext_resource type="Script" path="res://Cards/crad_pick.gd" id="1_x11kt"]
+[ext_resource type="Texture2D" uid="uid://cejxliyrvvp4r" path="res://Assets/UI_icons/button_hover.png" id="2_1thxq"]
+[ext_resource type="Script" path="res://Cards/pick_card.gd" id="3_p58oq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lnw01"]
+
+[node name="Crad_pick" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x11kt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 36
+text = "Выберите карту строительства"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Card_1" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(256, 350)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 478.0
+texture_normal = ExtResource("1_twvdh")
+texture_hover = ExtResource("2_1thxq")
+stretch_mode = 0
+script = ExtResource("3_p58oq")
+
+[node name="Name" type="Label" parent="Panel/Card_1"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Panel/Card_1"]
+custom_minimum_size = Vector2(224, 87)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 240.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="Panel/Card_1"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 192.0
+
+[node name="Picked" type="TextureRect" parent="Panel/Card_1"]
+visible = false
+self_modulate = Color(0.551184, 0.674708, 0.341256, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 200.0
+offset_right = 250.0
+offset_bottom = 50.0
+texture = SubResource("PlaceholderTexture2D_lnw01")
+
+[node name="Card_2" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(256, 350)
+layout_mode = 0
+offset_left = 576.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 478.0
+texture_normal = ExtResource("1_twvdh")
+texture_hover = ExtResource("2_1thxq")
+stretch_mode = 0
+script = ExtResource("3_p58oq")
+
+[node name="Name" type="Label" parent="Panel/Card_2"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Panel/Card_2"]
+custom_minimum_size = Vector2(224, 87)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 240.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="Panel/Card_2"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 192.0
+
+[node name="Picked" type="TextureRect" parent="Panel/Card_2"]
+visible = false
+self_modulate = Color(0.551184, 0.674708, 0.341256, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 200.0
+offset_right = 250.0
+offset_bottom = 50.0
+texture = SubResource("PlaceholderTexture2D_lnw01")
+
+[node name="Card_3" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(256, 350)
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 128.0
+offset_right = 1280.0
+offset_bottom = 478.0
+texture_normal = ExtResource("1_twvdh")
+texture_hover = ExtResource("2_1thxq")
+stretch_mode = 0
+script = ExtResource("3_p58oq")
+
+[node name="Name" type="Label" parent="Panel/Card_3"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Panel/Card_3"]
+custom_minimum_size = Vector2(224, 87)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 240.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="Panel/Card_3"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 192.0
+
+[node name="Picked" type="TextureRect" parent="Panel/Card_3"]
+visible = false
+self_modulate = Color(0.551184, 0.674708, 0.341256, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 200.0
+offset_right = 250.0
+offset_bottom = 50.0
+texture = SubResource("PlaceholderTexture2D_lnw01")
+
+[node name="Confirm" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 576.0
+offset_right = 832.0
+offset_bottom = 662.0
+texture_normal = ExtResource("1_twvdh")
+texture_hover = ExtResource("2_1thxq")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Confirm"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 232.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "Подтвердить"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Card_1" to="." method="_on_card_1_pressed"]
+[connection signal="pressed" from="Panel/Card_2" to="." method="_on_card_2_pressed"]
+[connection signal="pressed" from="Panel/Card_3" to="." method="_on_card_3_pressed"]
+[connection signal="pressed" from="Panel/Confirm" to="." method="_on_confirm_pressed"]

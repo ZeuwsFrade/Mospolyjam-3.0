@@ -1,0 +1,229 @@
+[gd_scene load_steps=29 format=4 uid="uid://d3s32ty80fy3f"]
+
+[ext_resource type="Script" path="res://Menues/base_level.gd" id="1_dgadt"]
+[ext_resource type="Script" path="res://Cards/tile_map_layer.gd" id="3_1n36x"]
+[ext_resource type="Texture2D" uid="uid://dowslqc5362ac" path="res://Assets/Tilemap/TileMap_based.png" id="3_nlf58"]
+[ext_resource type="PackedScene" uid="uid://bgavwovj1gyne" path="res://Cards/building_type.tscn" id="4_e1ans"]
+[ext_resource type="PackedScene" uid="uid://bvrrx6gkbuv37" path="res://Assets/UI_icons/info_panel.tscn" id="4_udyn4"]
+[ext_resource type="Texture2D" uid="uid://dkkraloaaojq5" path="res://Assets/Icons/EI.png" id="5_1eweb"]
+[ext_resource type="Texture2D" uid="uid://blycaeb3sgnxr" path="res://Assets/Icons/farm_icon.png" id="5_pk3xb"]
+[ext_resource type="Texture2D" uid="uid://de2hscy10o8b1" path="res://Assets/Icons/Farm_hover.png" id="6_a6c2q"]
+[ext_resource type="Texture2D" uid="uid://cux250au5ot4n" path="res://Assets/Icons/Engine_icon.png" id="7_42n5d"]
+[ext_resource type="Texture2D" uid="uid://bvtq07tbryvsk" path="res://Assets/Icons/factory.png" id="7_i46b5"]
+[ext_resource type="Texture2D" uid="uid://d0qcbi5lk4q02" path="res://Assets/Icons/factory_hover.png" id="8_60q3k"]
+[ext_resource type="Texture2D" uid="uid://cr81wahq67vha" path="res://Assets/Icons/EI_hover.png" id="8_ygy6o"]
+[ext_resource type="Texture2D" uid="uid://c450rh1rq3ud2" path="res://Assets/Icons/Engine_hover.png" id="10_56p5o"]
+[ext_resource type="Texture2D" uid="uid://bu2d2qwcjemgj" path="res://Assets/Icons/electro.png" id="11_hs83k"]
+[ext_resource type="Texture2D" uid="uid://do5cdakhmgguk" path="res://Assets/Icons/electro_hover.png" id="12_vocgw"]
+[ext_resource type="Texture2D" uid="uid://bpivrt7pbn3um" path="res://Assets/Icons/home.png" id="13_rtkaw"]
+[ext_resource type="Texture2D" uid="uid://27j6f43gb00v" path="res://Assets/Icons/home_hover.png" id="14_7a5ys"]
+[ext_resource type="Texture2D" uid="uid://dx4hrtd2vh5ny" path="res://Assets/Icons/nii.png" id="15_px37s"]
+[ext_resource type="Texture2D" uid="uid://5ohh6pv2uoq" path="res://Assets/Icons/nii_hover.png" id="16_esaym"]
+[ext_resource type="Texture2D" uid="uid://b7gclidu4wael" path="res://Assets/Icons/rareitem.png" id="19_7knxf"]
+[ext_resource type="Texture2D" uid="uid://dut15ahp4hsxy" path="res://Assets/Icons/rareitem_hover.png" id="20_t5jf6"]
+[ext_resource type="PackedScene" uid="uid://hbi62rav7pdi" path="res://Characters/dialog.tscn" id="21_2qy8d"]
+[ext_resource type="PackedScene" uid="uid://b68kpk3jho1d0" path="res://Cards/crad_pick.tscn" id="21_cb1a5"]
+[ext_resource type="PackedScene" uid="uid://uqpugwkfe1jn" path="res://Cards/card.tscn" id="22_doo47"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbktq"]
+texture = ExtResource("3_nlf58")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/custom_data_0 = "Nothing"
+1:0/0 = 0
+1:0/0/custom_data_0 = "Farm"
+2:0/0 = 0
+2:0/0/custom_data_0 = "House"
+3:0/0 = 0
+3:0/0/custom_data_0 = "Factory"
+4:0/0 = 0
+4:0/0/custom_data_0 = "Workshop"
+5:0/0 = 0
+5:0/0/custom_data_0 = "Engine"
+6:0/0 = 0
+6:0/0/custom_data_0 = "Lab"
+7:0/0 = 0
+7:0/0/custom_data_0 = "Electro"
+0:1/0 = 0
+0:1/0/custom_data_0 = "Rare_factory"
+1:1/0 = 0
+1:1/0/custom_data_0 = "Farm_up"
+2:1/0 = 0
+2:1/0/custom_data_0 = "House_up"
+3:1/0 = 0
+3:1/0/custom_data_0 = "Factory_up"
+4:1/0 = 0
+4:1/0/custom_data_0 = "Workshop_up"
+5:1/0 = 0
+5:1/0/custom_data_0 = "Engine_up"
+6:1/0 = 0
+6:1/0/custom_data_0 = "Lab_up"
+7:1/0 = 0
+7:1/0/custom_data_0 = "Electro_up"
+0:2/0 = 0
+0:2/0/custom_data_0 = "Rare_factory_up"
+
+[sub_resource type="TileSet" id="TileSet_17x27"]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = "Type_of_tile"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_wbktq")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hpl5s"]
+size = Vector2(64, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2dq1k"]
+size = Vector2(64, 64)
+
+[node name="Map_of_building" type="Node2D"]
+position = Vector2(512, 128)
+script = ExtResource("1_dgadt")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_17x27")
+script = ExtResource("3_1n36x")
+
+[node name="Option_selection" type="PopupMenu" parent="."]
+
+[node name="Selected_tile" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0, 1, 1, 0.439216)
+position = Vector2(-88, 32)
+texture = SubResource("PlaceholderTexture2D_hpl5s")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 192.0
+offset_top = 216.0
+offset_right = 235.0
+offset_bottom = 236.0
+scale = Vector2(6.39895, 14.5454)
+theme_override_font_sizes/font_size = 8
+text = "Переход"
+
+[node name="Food" type="Label" parent="UI"]
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 424.0
+offset_bottom = 87.0
+
+[node name="Mech" type="Label" parent="UI"]
+offset_left = 384.0
+offset_top = 88.0
+offset_right = 424.0
+offset_bottom = 111.0
+
+[node name="Energy" type="Label" parent="UI"]
+offset_left = 384.0
+offset_top = 112.0
+offset_right = 424.0
+offset_bottom = 135.0
+
+[node name="Truns" type="Label" parent="UI"]
+offset_left = 512.0
+offset_top = 88.0
+offset_right = 552.0
+offset_bottom = 111.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+custom_minimum_size = Vector2(380, 125)
+offset_left = 528.0
+offset_top = 520.0
+offset_right = 908.0
+offset_bottom = 760.0
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="BuildingType" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("5_pk3xb")
+texture_hover = ExtResource("6_a6c2q")
+type = "Farm"
+amount_of_cards = 2
+
+[node name="BuildingType2" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("7_i46b5")
+texture_hover = ExtResource("8_60q3k")
+type = "Factory"
+amount_of_cards = 1
+
+[node name="BuildingType3" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("13_rtkaw")
+texture_hover = ExtResource("14_7a5ys")
+type = "House"
+
+[node name="BuildingType4" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("11_hs83k")
+texture_hover = ExtResource("12_vocgw")
+type = "Electro"
+
+[node name="BuildingType5" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("5_1eweb")
+texture_hover = ExtResource("8_ygy6o")
+type = "Workshop"
+
+[node name="BuildingType6" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("15_px37s")
+texture_hover = ExtResource("16_esaym")
+type = "Lab"
+
+[node name="BuildingType7" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("7_42n5d")
+texture_hover = ExtResource("10_56p5o")
+type = "Engine"
+
+[node name="BuildingType8" parent="UI/ScrollContainer/VBoxContainer/GridContainer" instance=ExtResource("4_e1ans")]
+layout_mode = 2
+texture_normal = ExtResource("19_7knxf")
+texture_hover = ExtResource("20_t5jf6")
+type = "Rare_factory"
+
+[node name="Crad_pick" parent="UI" instance=ExtResource("21_cb1a5")]
+visible = false
+
+[node name="Info_panel" parent="UI" instance=ExtResource("4_udyn4")]
+visible = false
+
+[node name="Dialog" parent="UI" instance=ExtResource("21_2qy8d")]
+visible = false
+
+[node name="Selected_building" type="Sprite2D" parent="UI"]
+visible = false
+self_modulate = Color(0.148908, 0.148427, 1.20327e-08, 0.368627)
+position = Vector2(544, 96)
+texture = SubResource("PlaceholderTexture2D_2dq1k")
+
+[node name="Card" parent="UI" instance=ExtResource("22_doo47")]
+visible = false
+offset_left = 1000.0
+offset_top = 128.0
+offset_right = -190.0
+offset_bottom = -242.0
+
+[connection signal="id_pressed" from="Option_selection" to="." method="_on_option_selection_id_pressed"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType2" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType2" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType3" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType3" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType4" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType4" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType5" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType5" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType6" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType6" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType7" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType7" method="_on_pressed"]
+[connection signal="pressed" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType8" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType8" method="_on_pressed"]

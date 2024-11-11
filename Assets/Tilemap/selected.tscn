@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4tn5jbg04upc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2dq1k"]
+size = Vector2(64, 64)
+
+[node name="Selected" type="Sprite2D"]
+self_modulate = Color(1, 1, 0.227451, 0.368627)
+texture = SubResource("PlaceholderTexture2D_2dq1k")
