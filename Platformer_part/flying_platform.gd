@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 10
 @export var Direction = ""
 @export var end_position = Vector2()
+@export var free = false
 var moving = 0
 var start_position = self.position
 # Called when the node enters the scene tree for the first time.
@@ -13,14 +14,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Direction == "Down":
-		if moving == 1:
+		if moving == 1 and position.y < end_position.y:
 			position.y += SPEED * delta
 		elif moving == 2:
 			if self.position >= start_position:
 				position.y -= SPEED * delta * 0.5
 			else:
 				moving = 0
-	elif Direction == "Up":
+	elif Direction == "Up" and position.y > end_position.y:
 		if moving == 1:
 			position.y -= SPEED * delta
 		elif moving == 2:
@@ -29,7 +30,7 @@ func _process(delta):
 			else:
 				moving = 0
 	elif Direction == "Right":
-		if moving == 1:
+		if moving == 1 and position.x < end_position.x:
 			position.x += SPEED * delta
 		elif moving == 2:
 			if self.position >= start_position:
@@ -37,7 +38,7 @@ func _process(delta):
 			else:
 				moving = 0
 	elif Direction == "Left":
-		if moving == 1:
+		if moving == 1 and position.x > end_position.x:
 			position.x -= SPEED * delta
 		elif moving == 2:
 			if self.position <= start_position:
@@ -49,9 +50,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		moving = 1
-		print("IN")
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+func _on_area_2d_body_exited(body):
+	if body.name == "Player" and free == false:
 		moving = 2
-		print("OUT")

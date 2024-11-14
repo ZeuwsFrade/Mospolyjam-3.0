@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		GloblalGamePlay.shesterni += 1
+		if type == "Common":
+			GloblalGamePlay.mat += 1
+		else:
+			GloblalGamePlay.rare_mat += 1
 		queue_free()
-		pass

@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjfuvjwuvd056"]
+
+[ext_resource type="Script" path="res://Menues/upgrade_menu.gd" id="1_4cgik"]
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="2_6xt5h"]
+
+[node name="Upgrade_menu" type="Control"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cgik")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 498.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_6xt5h")
+text = "Улучшения костюма"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade_points" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 36.0
+offset_right = 167.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("2_6xt5h")
+text = "Очки улучшений: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Double_jump" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 84.0
+offset_right = 197.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("2_6xt5h")
+text = "Паровые ботинки: "
+
+[node name="DJ_up" type="Button" parent="Panel/Double_jump"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 344.0
+offset_top = -8.0
+offset_right = 384.0
+offset_bottom = 32.0
+text = "+"
+
+[node name="DJ_down" type="Button" parent="Panel/Double_jump"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 392.0
+offset_top = -8.0
+offset_right = 432.0
+offset_bottom = 32.0
+text = "-"
+
+[node name="Jump_speed" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 132.0
+offset_right = 215.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("2_6xt5h")
+text = "Паровой экзоскелет: "
+
+[node name="JS_up" type="Button" parent="Panel/Jump_speed"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 344.0
+offset_top = -8.0
+offset_right = 384.0
+offset_bottom = 32.0
+text = "+"
+
+[node name="JS_down" type="Button" parent="Panel/Jump_speed"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 392.0
+offset_top = -8.0
+offset_right = 432.0
+offset_bottom = 32.0
+text = "-"
+
+[connection signal="pressed" from="Panel/Double_jump/DJ_up" to="." method="_on_dj_up_pressed"]
+[connection signal="pressed" from="Panel/Double_jump/DJ_down" to="." method="_on_dj_down_pressed"]
+[connection signal="pressed" from="Panel/Jump_speed/JS_up" to="." method="_on_js_up_pressed"]
+[connection signal="pressed" from="Panel/Jump_speed/JS_down" to="." method="_on_js_down_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2qjv3xo4rr7c"
+path="res://.godot/imported/Demolish.mp3-6a0f6b9bbcae504bb22212c18914d3f8.mp3str"
+
+[deps]
+
+source_file="res://Music and sounds/Demolish.mp3"
+dest_files=["res://.godot/imported/Demolish.mp3-6a0f6b9bbcae504bb22212c18914d3f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

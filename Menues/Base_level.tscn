@@ -1,12 +1,16 @@
-[gd_scene load_steps=29 format=4 uid="uid://d3s32ty80fy3f"]
+[gd_scene load_steps=35 format=4 uid="uid://d3s32ty80fy3f"]
 
 [ext_resource type="Script" path="res://Menues/base_level.gd" id="1_dgadt"]
+[ext_resource type="Texture2D" uid="uid://837s5joe6u3p" path="res://Assets/Backgrounds/background_city-building.png" id="2_cbxwk"]
 [ext_resource type="Script" path="res://Cards/tile_map_layer.gd" id="3_1n36x"]
 [ext_resource type="Texture2D" uid="uid://dowslqc5362ac" path="res://Assets/Tilemap/TileMap_based.png" id="3_nlf58"]
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="4_dulx2"]
 [ext_resource type="PackedScene" uid="uid://bgavwovj1gyne" path="res://Cards/building_type.tscn" id="4_e1ans"]
-[ext_resource type="PackedScene" uid="uid://bvrrx6gkbuv37" path="res://Assets/UI_icons/info_panel.tscn" id="4_udyn4"]
+[ext_resource type="Texture2D" uid="uid://73lm8twjuiuk" path="res://Assets/Icons/Food.png" id="4_skpdi"]
+[ext_resource type="Texture2D" uid="uid://3pn5pjtw4eb6" path="res://Assets/Icons/Mat.png" id="5_0kg8t"]
 [ext_resource type="Texture2D" uid="uid://dkkraloaaojq5" path="res://Assets/Icons/EI.png" id="5_1eweb"]
 [ext_resource type="Texture2D" uid="uid://blycaeb3sgnxr" path="res://Assets/Icons/farm_icon.png" id="5_pk3xb"]
+[ext_resource type="AudioStream" uid="uid://tg7wrlumdled" path="res://Music and sounds/Build_music.mp3" id="5_pqp7e"]
 [ext_resource type="Texture2D" uid="uid://de2hscy10o8b1" path="res://Assets/Icons/Farm_hover.png" id="6_a6c2q"]
 [ext_resource type="Texture2D" uid="uid://cux250au5ot4n" path="res://Assets/Icons/Engine_icon.png" id="7_42n5d"]
 [ext_resource type="Texture2D" uid="uid://bvtq07tbryvsk" path="res://Assets/Icons/factory.png" id="7_i46b5"]
@@ -24,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://hbi62rav7pdi" path="res://Characters/dialog.tscn" id="21_2qy8d"]
 [ext_resource type="PackedScene" uid="uid://b68kpk3jho1d0" path="res://Cards/crad_pick.tscn" id="21_cb1a5"]
 [ext_resource type="PackedScene" uid="uid://uqpugwkfe1jn" path="res://Cards/card.tscn" id="22_doo47"]
+[ext_resource type="PackedScene" uid="uid://dimfbet2t8ttf" path="res://Menues/event.tscn" id="25_hbs13"]
+[ext_resource type="PackedScene" uid="uid://cjfuvjwuvd056" path="res://Menues/upgrade_menu.tscn" id="26_b0lc0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbktq"]
 texture = ExtResource("3_nlf58")
@@ -79,10 +85,25 @@ size = Vector2(64, 64)
 position = Vector2(512, 128)
 script = ExtResource("1_dgadt")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -512.0
+offset_top = -128.0
+offset_right = 928.0
+offset_bottom = 664.0
+mouse_filter = 2
+texture = ExtResource("2_cbxwk")
+expand_mode = 1
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_17x27")
 script = ExtResource("3_1n36x")
+
+[node name="Build_Demolish" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pqp7e")
+autoplay = true
 
 [node name="Option_selection" type="PopupMenu" parent="."]
 
@@ -94,38 +115,100 @@ texture = SubResource("PlaceholderTexture2D_hpl5s")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="UI"]
-offset_left = 192.0
-offset_top = 216.0
-offset_right = 235.0
-offset_bottom = 236.0
-scale = Vector2(6.39895, 14.5454)
-theme_override_font_sizes/font_size = 8
-text = "Переход"
-
-[node name="Food" type="Label" parent="UI"]
-offset_left = 384.0
-offset_top = 64.0
-offset_right = 424.0
+[node name="TextureButton" type="Button" parent="UI"]
+offset_left = 765.0
+offset_top = 56.0
+offset_right = 894.0
 offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "Пропуск цикла"
 
-[node name="Mech" type="Label" parent="UI"]
-offset_left = 384.0
+[node name="Button" type="Button" parent="UI"]
+offset_left = 792.0
 offset_top = 88.0
-offset_right = 424.0
-offset_bottom = 111.0
+offset_right = 894.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "Улучшения"
+
+[node name="Food_icon" type="TextureRect" parent="UI"]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 158.0
+texture = ExtResource("4_skpdi")
+expand_mode = 1
+
+[node name="Food" type="Label" parent="UI/Food_icon"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 88.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "text"
+
+[node name="Mech_icon" type="TextureRect" parent="UI"]
+offset_left = 384.0
+offset_top = 160.0
+offset_right = 416.0
+offset_bottom = 190.0
+texture = ExtResource("5_0kg8t")
+expand_mode = 1
+
+[node name="Mech" type="Label" parent="UI/Mech_icon"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 96.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "Text"
 
 [node name="Energy" type="Label" parent="UI"]
 offset_left = 384.0
-offset_top = 112.0
+offset_top = 192.0
 offset_right = 424.0
-offset_bottom = 135.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "233"
+
+[node name="People" type="Label" parent="UI"]
+offset_left = 384.0
+offset_top = 216.0
+offset_right = 424.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "323"
 
 [node name="Truns" type="Label" parent="UI"]
 offset_left = 512.0
 offset_top = 88.0
 offset_right = 552.0
 offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "321"
+
+[node name="Dur" type="Label" parent="UI"]
+offset_left = 512.0
+offset_top = 64.0
+offset_right = 552.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "321"
+
+[node name="Stab" type="Label" parent="UI"]
+offset_left = 512.0
+offset_top = 40.0
+offset_right = 552.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_dulx2")
+text = "321"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
 custom_minimum_size = Vector2(380, 125)
@@ -196,9 +279,6 @@ type = "Rare_factory"
 [node name="Crad_pick" parent="UI" instance=ExtResource("21_cb1a5")]
 visible = false
 
-[node name="Info_panel" parent="UI" instance=ExtResource("4_udyn4")]
-visible = false
-
 [node name="Dialog" parent="UI" instance=ExtResource("21_2qy8d")]
 visible = false
 
@@ -215,7 +295,18 @@ offset_top = 128.0
 offset_right = -190.0
 offset_bottom = -242.0
 
+[node name="Event" parent="UI" instance=ExtResource("25_hbs13")]
+visible = false
+
+[node name="Upgrade_menu" parent="UI" instance=ExtResource("26_b0lc0")]
+visible = false
+offset_left = 200.0
+offset_top = 144.0
+offset_right = 700.0
+offset_bottom = 344.0
+
 [connection signal="id_pressed" from="Option_selection" to="." method="_on_option_selection_id_pressed"]
+[connection signal="pressed" from="UI/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" to="UI/ScrollContainer/VBoxContainer/GridContainer/BuildingType" method="_on_mouse_exited"]

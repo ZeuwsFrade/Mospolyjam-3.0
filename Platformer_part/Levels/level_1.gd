@@ -13,5 +13,27 @@ func _process(delta: float) -> void:
 
 func _on_escape_point_body_entered(body: Node2D) -> void:
 		if body.name == "Player":
-			get_tree().change_scene_to_file("res://Menues/Base_level.tscn")
+			if level_id == 0:
+				GloblalGamePlay.platformer_level_done = true
+				GloblalGamePlay.turn_limit = 0
+				GloblalGamePlay.ne_stroim = false
+			if level_id == 1:
+				GloblalGamePlay.platformer_level_done = true
+				GloblalGamePlay.turn_limit = 5
+				GloblalGamePlay.ne_stroim = false
+			if level_id == 2:
+				GloblalGamePlay.platformer_level_done = true
+				GloblalGamePlay.turn_limit = 5
+				GloblalGamePlay.ne_stroim = false
+			if level_id == 3:
+				GloblalGamePlay.platformer_level_done = true
+				GloblalGamePlay.turn_limit = 5
+				GloblalGamePlay.ne_stroim = false
+			if level_id == 4:
+				GloblalGamePlay.platformer_level_done = true
+				GloblalGamePlay.turn_limit = 7
+				GloblalGamePlay.ne_stroim = false
+			if level_id == 5:
+				GloblalGamePlay.La_finale = true
+			get_tree().change_scene_to_file("res://Menues/loading_screen.tscn")
 		

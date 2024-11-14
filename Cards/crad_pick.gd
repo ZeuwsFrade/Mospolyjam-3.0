@@ -90,20 +90,25 @@ func _on_confirm_pressed() -> void:
 		card_3.pick.visible = false
 		card_3.choosed = false
 		pick_confirmed = []
+		if GloblalGamePlay.cycle == 1:
+			$"../Dialog".new_dialog()
+			$"../Dialog".visible = true
+		elif GloblalGamePlay.cycle == 2 or GloblalGamePlay.cycle == 3:
+			$"../Event".visible = true
+		elif GloblalGamePlay.cycle == 4:
+			$"../Dialog".visible = true
 		visible = false
 
-func new_pick(card1, card2, card3):
+func new_pick():
 	if GloblalGamePlay.global_deck.size() > 3:
-		print(GloblalGamePlay.global_deck)
-		print(GloblalGamePlay.global_deck.size())
 		var card_ind = randi_range(0,GloblalGamePlay.global_deck.size()-1)
-		card1.type = GloblalGamePlay.global_deck[card_ind]
+		card_1.type = GloblalGamePlay.global_deck[card_ind]
 		GloblalGamePlay.global_deck.remove_at(card_ind)
 		card_ind = randi_range(0,GloblalGamePlay.global_deck.size()-1)
-		card2.type = GloblalGamePlay.global_deck[card_ind]
+		card_2.type = GloblalGamePlay.global_deck[card_ind]
 		GloblalGamePlay.global_deck.remove_at(card_ind)
 		card_ind = randi_range(0,GloblalGamePlay.global_deck.size()-1)
-		card3.type = GloblalGamePlay.global_deck[card_ind]
+		card_3.type = GloblalGamePlay.global_deck[card_ind]
 		GloblalGamePlay.global_deck.remove_at(card_ind)
 	else:
 		return 0

@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=4 uid="uid://cs2oaqyeil76e"]
+
+[ext_resource type="Script" path="res://Platformer_part/Levels/level_1.gd" id="1_s8yrf"]
+[ext_resource type="Script" path="res://Platformer_part/Levels/manager.gd" id="2_tb2cl"]
+[ext_resource type="Texture2D" uid="uid://dkrh3rn1u187e" path="res://Assets/Backgrounds/Background_platformer.png" id="3_rd7o7"]
+[ext_resource type="Texture2D" uid="uid://dspud7rjsorpm" path="res://Assets/Tilemap/tilesetplatform.png" id="4_uha6w"]
+[ext_resource type="Texture2D" uid="uid://cw7wx5blfxooh" path="res://Assets/Tilemap/dop_tiles.png" id="5_rpxw3"]
+[ext_resource type="PackedScene" uid="uid://cfkpflirx77me" path="res://Characters/player.tscn" id="6_uisnm"]
+[ext_resource type="PackedScene" uid="uid://daryg5n47k47c" path="res://Menues/pause_menu.tscn" id="7_1rrd7"]
+[ext_resource type="PackedScene" uid="uid://cegkm5kvvur1q" path="res://Platformer_part/collectables.tscn" id="7_nr2w5"]
+[ext_resource type="PackedScene" uid="uid://37msn7fvn13o" path="res://Platformer_part/kill_zone.tscn" id="8_efkd5"]
+[ext_resource type="PackedScene" uid="uid://pttt6me1nr61" path="res://Platformer_part/flying_platform.tscn" id="8_xkce7"]
+[ext_resource type="PackedScene" uid="uid://clrw7sqq31fv3" path="res://Platformer_part/escape_point.tscn" id="9_2udcs"]
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="10_5kc3u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_co80r"]
+texture = ExtResource("4_uha6w")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyjd1"]
+texture = ExtResource("5_rpxw3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_3ja4m"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_co80r")
+sources/1 = SubResource("TileSetAtlasSource_xyjd1")
+
+[node name="Level_3" type="Node2D"]
+script = ExtResource("1_s8yrf")
+level_id = 2
+
+[node name="Manager" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_tb2cl")
+
+[node name="Backs" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Backs"]
+offset_right = 1720.0
+offset_bottom = 967.0
+texture = ExtResource("3_rd7o7")
+
+[node name="TextureRect2" type="TextureRect" parent="Backs"]
+offset_left = 1720.0
+offset_right = 3440.0
+offset_bottom = 967.0
+texture = ExtResource("3_rd7o7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(280, 8)
+tile_map_data = PackedByteArray("AAAMAAgAAAAAAAAAAAANAAgAAAABAAAAAAAOAAgAAAABAAAAAAAPAAgAAAABAAAAAAAQAAgAAAABAAAAAAARAAgAAAABAAAAAAASAAgAAAABAAAAAAATAAgAAAABAAAAAAAUAAgAAAACAAAAAAAMAAkAAAAAAAEAAAAMAAoAAAAAAAIAAAAUAAkAAAACAAEAAAAUAAoAAAACAAIAAAAOAAkAAAABAAEAAAAOAAoAAAABAAEAAAANAAkAAAABAAEAAAAPAAkAAAABAAEAAAAQAAkAAAABAAEAAAARAAkAAAABAAEAAAASAAkAAAABAAEAAAATAAkAAAABAAEAAAASAAoAAAABAAEAAAAQAAoAAAABAAEAAAAOAAsAAQABAAAAAAASAAsAAQABAAAAAAAOAAwAAAAAAAMAAAASAAwAAAAAAAMAAAANAAoAAAABAAIAAAAPAAoAAAABAAIAAAARAAoAAAABAAIAAAATAAoAAAABAAIAAAAQAAsAAQABAAAAAAAQAAwAAAABAAMAAAD9/w8AAAAAAAAAAAD+/w8AAAABAAAAAAD//w8AAAABAAAAAAAAAA8AAAACAAAAAAD//xAAAQABAAAAAAD+/xAAAQABAAAAAAD+/xEAAAAAAAMAAAD//xEAAAAAAAMAAAAEABUAAAAAAAAAAAAFABUAAAABAAAAAAAGABUAAAACAAAAAAAHABUAAAAAAAAAAAAIABUAAAABAAAAAAAJABUAAAACAAAAAAAKABUAAAAAAAAAAAALABUAAAABAAAAAAAMABUAAAACAAAAAAAEABYAAAAAAAIAAAAFABYAAAABAAIAAAAGABYAAAACAAIAAAAHABYAAAAAAAIAAAAIABYAAAABAAIAAAAJABYAAAACAAIAAAAKABYAAAAAAAIAAAALABYAAAABAAIAAAAMABYAAAACAAIAAAD//xYAAAAAAAAAAAD//xcAAAAAAAEAAAD//xgAAAAAAAEAAAAAABYAAAABAAAAAAAAABcAAAABAAEAAAAAABgAAAABAAIAAAABABYAAAACAAAAAAABABcAAAACAAEAAAABABgAAAACAAIAAAD5/xYAAAAAAAAAAAD5/xcAAAAAAAEAAAD5/xgAAAAAAAIAAAD6/xYAAAABAAAAAAD6/xcAAAABAAEAAAD6/xgAAAABAAIAAAD7/xYAAAACAAAAAAD7/xcAAAACAAEAAAD7/xgAAAACAAEAAAD8/xoAAAAAAAAAAAD8/xsAAAAAAAEAAAD8/xwAAAAAAAIAAAD9/xwAAAABAAIAAAD+/xoAAAACAAAAAAD+/xsAAAACAAEAAAD+/xwAAAACAAIAAAD7/xkAAAACAAEAAAD7/xoAAAACAAEAAAD7/xsAAAACAAEAAAD7/xwAAAACAAEAAAD//xkAAAAAAAEAAAD//xoAAAAAAAEAAAD//xsAAAAAAAEAAAD//xwAAAAAAAEAAAD5/xkAAQABAAAAAAABABkAAQABAAAAAAD7/x0AAQABAAAAAAD//x0AAQABAAAAAAD5/xoAAAAAAAMAAAABABoAAAAAAAMAAAAFABcAAQABAAAAAAAIABcAAQABAAAAAAALABcAAQABAAAAAAAFABgAAAABAAMAAAAIABgAAAABAAMAAAALABgAAAABAAMAAAAaAAUAAAAAAAAAAAAaAAYAAAAAAAEAAAAbAAUAAAABAAAAAAAbAAYAAAABAAEAAAAcAAUAAAACAAAAAAAcAAYAAAACAAEAAAAbAAcAAAABAAEAAAAbAAgAAAABAAEAAAAbAAkAAAABAAEAAAAbAAoAAAABAAEAAAAbAAsAAAABAAEAAAAbAAwAAAABAAEAAAAbAA0AAAABAAEAAAAbAA4AAAABAAEAAAAbAA8AAAABAAEAAAAbABAAAAABAAEAAAAaAAcAAAAAAAEAAAAaAAgAAAAAAAEAAAAaAAkAAAAAAAEAAAAaAAoAAAAAAAEAAAAaAAsAAAAAAAEAAAAaAAwAAAAAAAEAAAAaAA0AAAAAAAEAAAAaAA4AAAAAAAEAAAAaAA8AAAAAAAEAAAAaABAAAAAAAAEAAAAcAAcAAAACAAEAAAAcAAgAAAACAAEAAAAcAAkAAAACAAEAAAAcAAoAAAACAAEAAAAcAAsAAAACAAEAAAAcAAwAAAACAAEAAAAcAA0AAAACAAEAAAAcAA4AAAACAAEAAAAcAA8AAAACAAEAAAAcABAAAAACAAEAAAAaABEAAAAAAAIAAAAbABEAAAABAAIAAAAcABEAAAACAAIAAAAdAAgAAAAAAAAAAAAeAAgAAAACAAAAAAAdAAkAAAAAAAIAAAAeAAkAAAACAAIAAAARABcAAAAAAAAAAAASABcAAAABAAAAAAATABcAAAABAAAAAAAUABcAAAABAAAAAAAVABcAAAACAAAAAAASABgAAQABAAAAAAAUABgAAQABAAAAAAASABkAAAAAAAMAAAAUABkAAAAAAAMAAAAoAAUAAAAAAAAAAAAoAAYAAAAAAAEAAAApAAUAAAABAAAAAAApAAYAAAABAAEAAAAqAAUAAAACAAAAAAAqAAYAAAACAAEAAAAoABEAAAAAAAEAAAAoABIAAAAAAAIAAAApABEAAAABAAEAAAApABIAAAABAAIAAAAqABEAAAACAAEAAAAqABIAAAACAAIAAAApABAAAAABAAEAAAApAA8AAAABAAEAAAApAA4AAAABAAEAAAApAA0AAAABAAEAAAApAAcAAAABAAEAAAApAAgAAAABAAEAAAApAAkAAAABAAEAAAAqAAgAAAACAAEAAAAqAAkAAAACAAEAAAAoAAgAAAAAAAEAAAAoAAkAAAAAAAEAAAAoABAAAAAAAAEAAAAoAA8AAAAAAAEAAAAoAA4AAAAAAAEAAAAoAA0AAAAAAAEAAAAqAA0AAAACAAEAAAAqAA4AAAACAAEAAAAqAA8AAAACAAEAAAAqABAAAAACAAEAAAAnAAcAAAAAAAAAAAArAAcAAAACAAAAAAAoAAcAAQABAAIAAAAqAAcAAQAAAAIAAAAnAAgAAQABAAAAAAArAAgAAQABAAAAAAAnAAkAAAABAAMAAAArAAkAAAABAAMAAAAbABYAAAAAAAAAAAAcABYAAAABAAAAAAAdABYAAAACAAAAAAAhABQAAAAAAAAAAAAiABQAAAABAAAAAAAjABQAAAACAAAAAAAmABEAAAAAAAAAAAAnABEAAAACAAAAAAAmABIAAAAAAAIAAAAnABIAAAACAAIAAAAiAA4AAAAAAAAAAAAjAA4AAAABAAAAAAAkAA4AAAACAAAAAAAiABUAAQABAAAAAAAcABcAAQABAAAAAAAcABgAAAAAAAMAAAAiABYAAAAAAAMAAAAiAA8AAAABAAMAAAAkAA8AAAABAAMAAAAwAA4AAAAAAAAAAAAxAA4AAAABAAAAAAAwAA8AAAAAAAEAAAAwABAAAAAAAAEAAAAwABEAAAAAAAEAAAAwABIAAAAAAAEAAAAwABMAAAAAAAEAAAAwABQAAAAAAAEAAAAwABUAAAAAAAEAAAAwABYAAAAAAAEAAAAxAA8AAAABAAEAAAAxABAAAAABAAEAAAAxABEAAAABAAEAAAAxABIAAAABAAEAAAAxABMAAAABAAEAAAAxABQAAAABAAEAAAAxABUAAAABAAEAAAAxABYAAAABAAEAAAAwABcAAAAAAAIAAAAxABcAAAABAAIAAAAyABcAAAABAAIAAAAzABcAAAABAAIAAAA0ABcAAAABAAIAAAA2ABcAAAACAAIAAAA1ABcAAAABAAIAAAA1ABYAAAABAAEAAAA1ABUAAAABAAEAAAA1ABQAAAABAAEAAAA1ABMAAAABAAEAAAA1ABIAAAABAAEAAAA1ABEAAAABAAEAAAA1ABAAAAABAAEAAAA1AA8AAAABAAEAAAA1AA4AAAABAAAAAAA2ABYAAAACAAEAAAA2ABUAAAACAAEAAAA2ABQAAAACAAEAAAA2ABMAAAACAAEAAAA2ABIAAAACAAEAAAA2ABEAAAACAAEAAAA2ABAAAAACAAEAAAA2AA8AAAACAAEAAAA2AA4AAAACAAAAAAAmABYAAAAAAAAAAAAnABYAAAABAAAAAAAoABYAAAACAAAAAAAnABcAAQABAAAAAAAnABgAAAAAAAMAAAD9/xoAAAABAAAAAAD9/xsAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_3ja4m")
+
+[node name="Player" parent="." instance=ExtResource("6_uisnm")]
+position = Vector2(744, 232)
+
+[node name="Collctables" type="Node2D" parent="."]
+
+[node name="collectables" parent="Collctables" instance=ExtResource("7_nr2w5")]
+position = Vector2(248, 464)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Flying_platform" parent="Platforms" instance=ExtResource("8_xkce7")]
+position = Vector2(1456, 272)
+SPEED = 50
+Direction = "Down"
+end_position = Vector2(1456, 432)
+
+[node name="Flying_platform2" parent="Platforms" instance=ExtResource("8_xkce7")]
+position = Vector2(1928, 656)
+SPEED = 80
+Direction = "Up"
+free = true
+
+[node name="Flying_platform3" parent="Platforms" instance=ExtResource("8_xkce7")]
+position = Vector2(1928, 560)
+SPEED = 80
+Direction = "Up"
+free = true
+
+[node name="Flying_platform4" parent="Platforms" instance=ExtResource("8_xkce7")]
+position = Vector2(1928, 472)
+SPEED = 80
+Direction = "Up"
+free = true
+
+[node name="Flying_platform5" parent="Platforms" instance=ExtResource("8_xkce7")]
+position = Vector2(1736, 704)
+SPEED = 80
+Direction = "Up"
+end_position = Vector2(1736, 480)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Pause_menu" parent="UI" instance=ExtResource("7_1rrd7")]
+process_mode = 2
+visible = false
+
+[node name="Double_jumps" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("10_5kc3u")
+theme_override_font_sizes/font_size = 26
+vertical_alignment = 1
+
+[node name="KillZone" parent="." instance=ExtResource("8_efkd5")]
+position = Vector2(1832, 1016)
+scale = Vector2(4, 1)
+
+[node name="Escape_point" parent="." instance=ExtResource("9_2udcs")]
+position = Vector2(1928, 728)
+
+[connection signal="body_entered" from="Escape_point" to="." method="_on_escape_point_body_entered"]

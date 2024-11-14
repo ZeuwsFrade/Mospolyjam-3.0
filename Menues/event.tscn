@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dimfbet2t8ttf"]
+
+[ext_resource type="Texture2D" uid="uid://blwxykq8blluk" path="res://Assets/UI_icons/button.png" id="1_sx2ui"]
+[ext_resource type="Script" path="res://Menues/event.gd" id="1_uhckn"]
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="3_dg3v0"]
+
+[node name="Event" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhckn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sx2ui")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 1280.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_dg3v0")
+theme_override_font_sizes/font_size = 44
+text = "Когда что-то там кудато там:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 320.0
+offset_right = 1280.0
+offset_bottom = 568.0
+alignment = 1
+
+[node name="Var_1" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dg3v0")
+text = "Вариант №1"
+
+[node name="Var_2" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dg3v0")
+text = "Вариант №1"
+
+[node name="Var_3" type="Button" parent="TextureRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dg3v0")
+text = "Вариант №1"
+
+[node name="Var_4" type="Button" parent="TextureRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dg3v0")
+text = "Вариант №1"
+
+[node name="Var_5" type="Button" parent="TextureRect/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dg3v0")
+text = "Вариант №1"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Var_1" to="." method="_on_var_1_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Var_2" to="." method="_on_var_2_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Var_3" to="." method="_on_var_3_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Var_4" to="." method="_on_var_4_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Var_5" to="." method="_on_var_5_pressed"]

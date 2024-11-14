@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://clrw7sqq31fv3"]
+[gd_scene load_steps=4 format=3 uid="uid://clrw7sqq31fv3"]
 
 [ext_resource type="Script" path="res://Platformer_part/escape_point.gd" id="1_blwrl"]
+[ext_resource type="Texture2D" uid="uid://dxhx2pgf1axn1" path="res://Platformer_part/Assets/Flag.png" id="2_50f2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8hpp"]
 size = Vector2(130, 42)
@@ -10,3 +11,7 @@ script = ExtResource("1_blwrl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x8hpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_50f2c")

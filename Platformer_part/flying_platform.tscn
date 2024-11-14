@@ -1,12 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://pttt6me1nr61"]
 
 [ext_resource type="Script" path="res://Platformer_part/flying_platform.gd" id="1_yxmvs"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_75c4x"]
-size = Vector2(100, 20)
+[ext_resource type="Texture2D" uid="uid://bkcx5r4ehikw8" path="res://Platformer_part/Assets/platform.png" id="2_mww1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ff5"]
-size = Vector2(100, 20)
+size = Vector2(96, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibgx1"]
 size = Vector2(100, 4)
@@ -17,7 +15,7 @@ collision_mask = 3
 script = ExtResource("1_yxmvs")
 
 [node name="Platform" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_75c4x")
+texture = ExtResource("2_mww1f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o8ff5")
@@ -25,7 +23,7 @@ shape = SubResource("RectangleShape2D_o8ff5")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -12)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_ibgx1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

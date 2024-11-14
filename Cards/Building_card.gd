@@ -46,15 +46,3 @@ func _on_pressed() -> void:
 	else:
 		selected_build.visible = false
 		base.building_type= ""
-
-
-func _on_mouse_entered() -> void:
-	print(type)
-	info.type = type
-	info.visible = true
-	info_in = true
-	
-func _on_mouse_exited() -> void:
-	info.type = ""
-	info.visible = false
-	info_in = false

@@ -1,9 +1,6 @@
 extends Control
 
-var dialogue = [["Коллет", "Марта, что происходит? Почему сработал протокол “Ковчег”?"], ["Марта", "А вот и ты... Я боялась, что ты не успеешь…"],
-["Марта", "Дорогуша, не нервничай. у нас всего лишь произошла маленькая перегрузка главного генератора, типичный сценарий ЧП класса Йота, но на йоту более масштабный."]
-
-]
+var dialogue: Array[Array]
 @onready var speech = $Dialog_ui/Text/RichTextLabel
 @onready var speaker = $Dialog_ui/Text/Speakingchar
 @onready var hero = $Dialog_ui/Hero
@@ -13,8 +10,7 @@ var current_line = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speaker.text = dialogue[current_line][0]
-	speech.text = dialogue[current_line][1]
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,16 +19,56 @@ func _process(delta: float) -> void:
 		speaker.text = dialogue[current_line][0]
 		speech.text = dialogue[current_line][1]
 	else:
-		speech.text = "Thank you for chatting!"
+		speech.text = "Конец диалога"
 	if current_line > dialogue.size():
-		visible = false
-	if speaker.text == "Коллет": 
-		#hero
+		if GlobalDialog.dialog_num == 1:
+			GlobalDialog.dialog_num += 1
+			visible = false
+			GloblalGamePlay.cycle += 1
+			get_tree().change_scene_to_file("res://Menues/loading_screen.tscn")
+		elif GlobalDialog.dialog_num == 2:
+			visible = false
+			$"../Event".visible = true
+		elif GlobalDialog.dialog_num == 3:
+			visible = false
+			$"../Event".visible = true
+		elif GlobalDialog.dialog_num == 4:
+			visible = false
+			GloblalGamePlay.cycle += 1
+			get_tree().change_scene_to_file("res://Menues/loading_screen.tscn")
+	if speaker.text == "Марта": 
+		$Dialog_ui/NPC.texture = load("res://Characters/Marta.png")
+	elif speaker.text != "Марта" and speaker.text != "Колетт":
+		$Dialog_ui/NPC.texture = load("res://Characters/Siluet.png")
 		pass
-	else:
-		#NPC
-		pass
-
-
+		
 func _on_button_pressed() -> void:
 	current_line += 1
+
+func new_dialog():
+	match GlobalDialog.dialog_num:
+		1:
+			current_line = 0
+			GlobalDialog.new_global_dialog()
+			dialogue = GlobalDialog.read_from_dialog(GlobalDialog.dialog_1)
+			speaker.text = dialogue[current_line][0]
+			speech.text = dialogue[current_line][1]
+		2:
+			current_line = 0
+			GlobalDialog.new_global_dialog()
+			dialogue = GlobalDialog.read_from_dialog(GlobalDialog.dialog_1)
+			speaker.text = dialogue[current_line][0]
+			speech.text = dialogue[current_line][1]
+		3:
+			current_line = 0
+			GlobalDialog.new_global_dialog()
+			dialogue = GlobalDialog.read_from_dialog(GlobalDialog.dialog_1)
+			speaker.text = dialogue[current_line][0]
+			speech.text = dialogue[current_line][1]
+			print(dialogue)
+		4:
+			current_line = 0
+			GlobalDialog.new_global_dialog()
+			dialogue = GlobalDialog.read_from_dialog(GlobalDialog.dialog_1)
+			speaker.text = dialogue[current_line][0]
+			speech.text = dialogue[current_line][1]

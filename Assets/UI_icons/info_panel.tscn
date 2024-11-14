@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvrrx6gkbuv37"]
 
-[ext_resource type="Script" path="res://info_panel.gd" id="1_da0nq"]
+[ext_resource type="Script" path="res://Assets/UI_icons/info_panel.gd" id="1_da0nq"]
 [ext_resource type="Texture2D" uid="uid://blwxykq8blluk" path="res://Assets/UI_icons/button.png" id="2_bhi74"]
 
 [node name="Info_panel" type="Control"]

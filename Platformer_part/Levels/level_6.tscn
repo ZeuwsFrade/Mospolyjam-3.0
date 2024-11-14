@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=4 uid="uid://dph7t7yqif1j0"]
+
+[ext_resource type="Script" path="res://Platformer_part/Levels/level_1.gd" id="1_hvyu4"]
+[ext_resource type="Script" path="res://Platformer_part/Levels/manager.gd" id="2_1uv5e"]
+[ext_resource type="Texture2D" uid="uid://dkrh3rn1u187e" path="res://Assets/Backgrounds/Background_platformer.png" id="3_0f3m0"]
+[ext_resource type="Texture2D" uid="uid://dspud7rjsorpm" path="res://Assets/Tilemap/tilesetplatform.png" id="4_a24fn"]
+[ext_resource type="Texture2D" uid="uid://cw7wx5blfxooh" path="res://Assets/Tilemap/dop_tiles.png" id="5_ok54d"]
+[ext_resource type="PackedScene" uid="uid://cfkpflirx77me" path="res://Characters/player.tscn" id="6_723bb"]
+[ext_resource type="PackedScene" uid="uid://pttt6me1nr61" path="res://Platformer_part/flying_platform.tscn" id="8_gxn3o"]
+[ext_resource type="PackedScene" uid="uid://cs6ssvjmfnnqs" path="res://Platformer_part/collapsing_platform.tscn" id="9_2a1qf"]
+[ext_resource type="PackedScene" uid="uid://daryg5n47k47c" path="res://Menues/pause_menu.tscn" id="10_ucymi"]
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="11_hh5md"]
+[ext_resource type="PackedScene" uid="uid://37msn7fvn13o" path="res://Platformer_part/kill_zone.tscn" id="12_m036x"]
+[ext_resource type="PackedScene" uid="uid://clrw7sqq31fv3" path="res://Platformer_part/escape_point.tscn" id="13_30ij6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcbo5"]
+texture = ExtResource("4_a24fn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6id1i"]
+texture = ExtResource("5_ok54d")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_3ja4m"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_hcbo5")
+sources/1 = SubResource("TileSetAtlasSource_6id1i")
+
+[node name="Level_5" type="Node2D"]
+script = ExtResource("1_hvyu4")
+level_id = 5
+
+[node name="Manager" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_1uv5e")
+
+[node name="Backs" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Backs"]
+offset_right = 1720.0
+offset_bottom = 967.0
+texture = ExtResource("3_0f3m0")
+
+[node name="TextureRect2" type="TextureRect" parent="Backs"]
+offset_left = 1720.0
+offset_right = 3440.0
+offset_bottom = 967.0
+texture = ExtResource("3_0f3m0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(280, 8)
+tile_map_data = PackedByteArray("AAD+/wYAAAAAAAAAAAD//wYAAAABAAAAAAAAAAYAAAACAAAAAAD//wcAAAAAAAMAAAAJAAUAAAAAAAAAAAAKAAUAAAABAAAAAAALAAUAAAACAAAAAAATAAcAAAAAAAAAAAAUAAcAAAABAAAAAAAVAAcAAAACAAAAAAAdAAQAAAAAAAAAAAAeAAQAAAABAAAAAAAfAAQAAAACAAAAAAArAAAAAAAAAAAAAAAsAAAAAAABAAAAAAArAAEAAAAAAAEAAAArAAIAAAAAAAEAAAArAAMAAAAAAAEAAAArAAQAAAAAAAEAAAArAAUAAAAAAAEAAAArAAYAAAAAAAEAAAArAAcAAAAAAAEAAAArAAgAAAAAAAEAAAArAAkAAAAAAAEAAAArAAoAAAAAAAEAAAAsAAEAAAABAAEAAAAsAAIAAAABAAEAAAAsAAMAAAABAAEAAAAsAAQAAAABAAEAAAAsAAUAAAABAAEAAAAsAAYAAAABAAEAAAAsAAcAAAABAAEAAAAsAAgAAAABAAEAAAAsAAkAAAABAAEAAAAsAAoAAAABAAEAAAArAAsAAAAAAAIAAAAsAAsAAAABAAIAAAAtAAEAAAACAAAAAAAtAAQAAAACAAAAAAAtAAcAAAACAAAAAAAtAAgAAQABAAAAAAAtAAUAAQABAAAAAAAtAAIAAQABAAAAAAAtAAkAAAAAAAMAAAAtAAYAAAAAAAMAAAAtAAMAAAAAAAMAAAAtAA8AAAAAAAAAAAAuAA8AAAABAAAAAAAvAA8AAAACAAAAAAAuABAAAQABAAAAAAAuABEAAAAAAAMAAAAeAAUAAAAAAAMAAAAUAAgAAAAAAAMAAAAKAAYAAAAAAAMAAABGABYAAAAAAAAAAABHABYAAAABAAAAAABIABYAAAABAAAAAABJABUAAAAAAAAAAABKABUAAAABAAAAAABLABUAAAABAAAAAABMABUAAAABAAAAAABNABUAAAABAAAAAABJABYAAQABAAIAAABGABcAAAAAAAEAAABGABgAAAAAAAEAAABGABkAAAAAAAEAAABGABoAAAAAAAIAAABHABoAAAABAAIAAABIABoAAAABAAIAAABJABoAAAABAAIAAABKABoAAAACAAIAAABOABUAAAABAAAAAABPABUAAAABAAAAAABQABUAAAABAAAAAABRABUAAAABAAAAAABGABsAAAAAAAEAAABGABwAAAAAAAEAAABGAB0AAAAAAAEAAABGAB4AAAAAAAEAAABKABsAAAACAAEAAABKABwAAAACAAEAAABKAB0AAAACAAEAAABKAB4AAAACAAEAAABKAB8AAAACAAEAAABKACAAAAACAAEAAABKACEAAAACAAEAAABHABsAAAABAAAAAABHABwAAAABAAEAAABHAB0AAAABAAEAAABHAB4AAAABAAEAAABJAB4AAAABAAEAAABJAB0AAAABAAEAAABJABwAAAABAAEAAABJABsAAAABAAAAAABIABwAAAABAAAAAABIAB4AAAABAAAAAAA=")
+tile_set = SubResource("TileSet_3ja4m")
+
+[node name="Player" parent="." instance=ExtResource("6_723bb")]
+position = Vector2(264, 168)
+
+[node name="Collctables" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Flying_platform" parent="Platforms" instance=ExtResource("8_gxn3o")]
+position = Vector2(1536, 192)
+SPEED = 60
+Direction = "Down"
+end_position = Vector2(1536, 528)
+
+[node name="Flying_platform2" parent="Platforms" instance=ExtResource("8_gxn3o")]
+position = Vector2(3192, 816)
+SPEED = 60
+Direction = "Left"
+end_position = Vector2(2752, 816)
+
+[node name="collapsing_platform" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(1984, 464)
+
+[node name="collapsing_platform2" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2104, 392)
+
+[node name="collapsing_platform3" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2224, 320)
+
+[node name="collapsing_platform4" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2392, 296)
+
+[node name="collapsing_platform5" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2584, 296)
+
+[node name="collapsing_platform6" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2776, 376)
+
+[node name="collapsing_platform7" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(2992, 448)
+
+[node name="collapsing_platform8" parent="Platforms" instance=ExtResource("9_2a1qf")]
+position = Vector2(3304, 600)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Pause_menu" parent="UI" instance=ExtResource("10_ucymi")]
+process_mode = 2
+visible = false
+
+[node name="Double_jumps" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("11_hh5md")
+theme_override_font_sizes/font_size = 26
+vertical_alignment = 1
+
+[node name="KillZone" parent="." instance=ExtResource("12_m036x")]
+position = Vector2(1816, 1136)
+scale = Vector2(4, 1)
+
+[node name="Escape_point" parent="." instance=ExtResource("13_30ij6")]
+position = Vector2(2592, 824)
+
+[connection signal="body_entered" from="Escape_point" to="." method="_on_escape_point_body_entered"]

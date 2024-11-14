@@ -9,5 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if type == "Farm":
-		info.text = "Это пищеблок. Стомость: 5 материалов, Производство: 5 пищи, Потребление: 5 энергии"
+	pass
+	#if type == "Farm":
+		#info.text = "Это пищеблок. Стомость: 5 материалов, Производство: 5 пищи, Потребление: 5 энергии"

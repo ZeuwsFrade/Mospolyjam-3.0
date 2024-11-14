@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://b10rv68lxk6p8"]
+
+[ext_resource type="FontFile" uid="uid://dmx01nyen366r" path="res://Assets/Fonts/nautiluspompilius.ttf" id="1_r6jep"]
+[ext_resource type="Script" path="res://Menues/la_finale.gd" id="1_w2cdj"]
+[ext_resource type="Texture2D" uid="uid://dkrh3rn1u187e" path="res://Assets/Backgrounds/Background_platformer.png" id="2_3o6qb"]
+[ext_resource type="AudioStream" uid="uid://cmacypynibdth" path="res://Music and sounds/La_finale.mp3" id="4_nt3q2"]
+
+[node name="La_finale" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w2cdj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 800.0
+texture = ExtResource("2_3o6qb")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 1200.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0.360784, 0.576471, 1)
+theme_override_fonts/font = ExtResource("1_r6jep")
+theme_override_font_sizes/font_size = 90
+text = "Конец..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stats" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 168.0
+offset_right = 880.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_r6jep")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 528.0
+offset_right = 1084.0
+offset_bottom = 688.0
+theme_override_colors/font_color = Color(0, 0.360784, 0.576471, 1)
+theme_override_fonts/font = ExtResource("1_r6jep")
+theme_override_font_sizes/font_size = 40
+text = "Неплохо... Быть может можно и лучше?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 648.0
+offset_right = 960.0
+offset_bottom = 752.0
+theme_override_colors/font_color = Color(0, 0.360784, 0.576471, 1)
+theme_override_fonts/font = ExtResource("1_r6jep")
+theme_override_font_sizes/font_size = 40
+text = "ESC чтобы выйти в меню...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nt3q2")
+volume_db = 10.0
+autoplay = true

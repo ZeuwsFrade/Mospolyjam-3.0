@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmacypynibdth"
+path="res://.godot/imported/La_finale.mp3-1c94ad40b9ecc0d82a9a700dc630d711.mp3str"
+
+[deps]
+
+source_file="res://Music and sounds/La_finale.mp3"
+dest_files=["res://.godot/imported/La_finale.mp3-1c94ad40b9ecc0d82a9a700dc630d711.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
